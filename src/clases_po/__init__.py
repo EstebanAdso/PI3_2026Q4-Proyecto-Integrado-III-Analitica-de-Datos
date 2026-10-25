@@ -1,4 +1,4 @@
+from .dataset_summarizer import DatasetSummarizer
 from .hf_loader import HFDatasetLoader
-from .reportes import Reportes
 
-__all__ = ["HFDatasetLoader", "Reportes"]
+__all__ = ["DatasetSummarizer", "HFDatasetLoader"]
