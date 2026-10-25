@@ -1,6 +1,12 @@
 VENTAS ENTREGADAS - OLIST (DATAFRAME TRANSFORMADO)
 ======================================================================
-Generado: 2026-10-25 18:16:00
+Generado: 2026-10-25 13:38:06
+
+Origen de los datos
+-------------------
+- Dataset: bulutttt/olist-raw-data
+- Split: train
+- Contenido: Ventas entregadas (DataFrame transformado)
 
 Dimensiones
 -----------
@@ -74,8 +80,8 @@ max        21.000   40425.000    6735.000     409.680     6929.310      24.000  
 
 Top 5 valores de columnas categóricas
 -------------------------------------
-- order_id: 8272b63d03f5f79c56e9e4120aec44ef (21), ab14fdcfbe524636d65ee38360e22ce8 (20), 1b15974a0141d54e36626dca3fdc731a (20), 428a2f660dc84138d969ccd69a0ab6d5 (15), 9ef13efd6949e4573a18964dd1bbe7f5 (15)
-- customer_unique_id: c8460e4251689ba205045f3ea17884a1 (24), 4546caea018ad8c692964e3382debd19 (21), c402f431464c72e27330a67f7b94d4fb (20), 698e1cf81d01a3d389d96145f7fa6df8 (20), 0f5ac8d5c31de21d2f25e24be15bbffb (18)
+- order_id: 8272b63d03f5f79c56e9e4120aec44ef (21), 1b15974a0141d54e36626dca3fdc731a (20), ab14fdcfbe524636d65ee38360e22ce8 (20), 428a2f660dc84138d969ccd69a0ab6d5 (15), 9ef13efd6949e4573a18964dd1bbe7f5 (15)
+- customer_unique_id: c8460e4251689ba205045f3ea17884a1 (24), 4546caea018ad8c692964e3382debd19 (21), 698e1cf81d01a3d389d96145f7fa6df8 (20), c402f431464c72e27330a67f7b94d4fb (20), 0f5ac8d5c31de21d2f25e24be15bbffb (18)
 - seller_id: 6560211a19b47992c3666cc44a7e94c0 (1996), 4a3ca9315b744ce9f8e9374361493884 (1949), 1f50f920176fa81dab994f9023523100 (1926), cc419e0650a3c5ba77189a1882b7556a (1719), da8622b14eb17ae2831f4ac5b9dab84a (1548)
 - product_id: aca2eb7d00ea1a7b8ebd4e68314663af (520), 422879e10f46682990de24d770e7f83d (484), 99a4788cb24856965c36a24e339b6058 (477), 389d119b48cf3043d311335e499d9c6b (390), 368c6c730842d78016ad823897a372db (388)
 - mes: 2017-11 (8474), 2018-01 (8037), 2018-03 (8017), 2018-04 (7827), 2018-05 (7810)
