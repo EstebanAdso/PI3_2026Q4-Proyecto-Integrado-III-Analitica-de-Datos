@@ -1,26 +1,40 @@
 # PI3_2026Q4 - Proyecto Integrado III: Analítica de Datos
 
-Proyecto del curso Proyecto Integrado III (IU Digital).
+Proyecto del curso Proyecto Integrado III - Analítica de Datos (IU Digital).
 
 ## Objetivo
 
-Construir un mecanismo reutilizable para **obtener, transformar y resumir datos
-de un negocio comercial**, con el código versionado en GitHub y ejecutado
-automáticamente:
+Construir un mecanismo reutilizable para **obtener, describir, transformar y
+resumir datos de un negocio comercial**, con el código versionado en GitHub y
+ejecutado automáticamente, y usarlo como base del proyecto integrador:
 
 - Una clase en Python obtiene los datos desde Hugging Face como DataFrame.
-- Un notebook de Jupyter aplica transformaciones a esos datos.
-- Otra clase en Python resume el resultado en un archivo `.txt`.
-- GitHub Actions ejecuta todo el flujo en cada cambio y deja la evidencia en el repositorio.
+- Notebooks de Jupyter describen y transforman esos datos.
+- Otra clase en Python resume el DataFrame en un archivo `.txt`.
+- GitHub Actions ejecuta los notebooks en cada cambio y deja la evidencia en el repositorio.
 
-Este mecanismo es la base de las siguientes actividades del curso.
+## Actividades
+
+| Actividad | Carpeta | Qué contiene |
+|---|---|---|
+| **EA1** - Carga y creación de dataset | `src/actividad_1/` | Notebook con 8 transformaciones del dataset y sus resúmenes `.txt` |
+| **AE2** - Proyecto integrador: ideación, diseño y documentación de la necesidad | `AE2/` | Documento Word con la necesidad y el diseño, notebook de reconocimiento del dataset y resumen `.txt` |
 
 ## Dataset
 
-Usamos **[Olist - Brazilian E-Commerce](https://huggingface.co/datasets/bulutttt/olist-raw-data)**
-(`bulutttt/olist-raw-data`): datos reales de un negocio comercial (marketplace
-de Brasil, 2016-2018) con clientes, órdenes, facturación, productos y
-proveedores.
+Use **[Olist - Brazilian E-Commerce](https://huggingface.co/datasets/bulutttt/olist-raw-data)**:
+datos **reales y anonimizados** de un negocio comercial (marketplace de Brasil)
+con clientes, órdenes, facturación, productos y proveedores.
+
+| Ficha | Valor |
+|---|---|
+| Identificador | `bulutttt/olist-raw-data` |
+| Enlace | https://huggingface.co/datasets/bulutttt/olist-raw-data |
+| Fuente original | [Brazilian E-Commerce Public Dataset by Olist (Kaggle)](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) |
+| Revisión usada en la AE2 | `5acf1f37d7197d4979e714721a1ec13a7c3da728` |
+| Split | `train` (único disponible); cada tabla se carga por su archivo `.csv` |
+| Periodo | Compras entre septiembre de 2016 y septiembre de 2018 |
+| Licencia | CC BY-NC-SA 4.0 (uso no comercial con atribución), según la fuente original |
 
 | Tabla | Contenido |
 |---|---|
@@ -32,11 +46,45 @@ proveedores.
 | Vendedores | Proveedores que venden en el marketplace |
 | Categorías | Traducción de las categorías de producto |
 
+Los datos **no se guardan en el repositorio**: se descargan desde Hugging Face al
+ejecutar los notebooks. El dataset es público y no requiere registro. En el
+repositorio solo quedan los resúmenes y las tablas agregadas que generan los
+notebooks.
+
+## AE2 - Necesidad analítica del proyecto integrador
+
+- **Propósito:** formular y documentar una necesidad de analítica descriptiva a
+  partir del dataset de Olist, y reconocer sus datos.
+- **Beneficiario (escenario hipotético):** el equipo comercial y de operaciones
+  de un marketplace.
+- **Necesidad:** conocer qué categorías de producto y qué estados de Brasil
+  concentran las unidades vendidas y los ingresos, y cómo se comporta el tiempo
+  de entrega en esos grupos, para priorizar decisiones comerciales y logísticas.
+- **Pregunta de análisis:** ¿cómo se distribuyen las unidades vendidas y los
+  ingresos por venta de productos entre las categorías de producto y los estados
+  del cliente en las órdenes de Olist registradas entre septiembre de 2016 y
+  septiembre de 2018, y cómo varía el tiempo de entrega entre esos grupos?
+- **Unidad de análisis:** el ítem de orden (cada fila es un producto vendido).
+  El DataFrame tiene 112.650 filas y 30 columnas.
+
+| Archivo | Contenido |
+|---|---|
+| `AE2/documento/AE2_Necesidad_y_Diseno_Olist.docx` | Documento con portada, introducción, necesidad, justificación, objetivos, marco teórico, metodología (ficha, diccionario de variables, alcance y diseño), reconocimiento del dataset y referencias |
+| `AE2/notebooks/AE2_reconocimiento_olist.ipynb` | Obtiene 6 tablas de Hugging Face, las une en un DataFrame de ítems y muestra registros, dimensiones, columnas, tipos y nulos. Genera y verifica el resumen `.txt` |
+| `AE2/resultados/resumen_dataframe.txt` | Resumen generado automáticamente: dataset, revisión, split, archivos, filas, columnas, tipos y nulos |
+
 ## Archivos del proyecto
 
 ```
 .
-├── .github/workflows/ejecutar-actividad-1.yml
+├── .github/workflows/ejecutar-notebooks.yml
+├── AE2/
+│   ├── documento/
+│   │   └── AE2_Necesidad_y_Diseno_Olist.docx
+│   ├── notebooks/
+│   │   └── AE2_reconocimiento_olist.ipynb
+│   └── resultados/
+│       └── resumen_dataframe.txt
 ├── src/
 │   ├── clases_po/
 │   │   ├── __init__.py
@@ -52,11 +100,12 @@ proveedores.
 
 | Archivo | Qué hace |
 |---|---|
-| `src/clases_po/hf_loader.py` | Clase **`HFDatasetLoader`**. Se conecta a Hugging Face, descarga una tabla del dataset y la devuelve como DataFrame de pandas. Con `load_tables()` carga varias tablas a la vez. |
-| `src/clases_po/dataset_summarizer.py` | Clase **`DatasetSummarizer`**. Recibe un DataFrame y genera un resumen: filas, columnas, tipos, valores nulos, duplicados, estadísticas, valores más frecuentes y rango de fechas. Lo muestra en pantalla o lo guarda en `.txt`. |
+| `src/clases_po/hf_loader.py` | Clase **`HFDatasetLoader`**. Se conecta a Hugging Face, descarga una tabla del dataset y la devuelve como DataFrame de pandas. Permite indicar el split, el archivo (`data_files`) y la revisión. Con `load_tables()` carga varias tablas a la vez. |
+| `src/clases_po/dataset_summarizer.py` | Clase **`DatasetSummarizer`**. Recibe un DataFrame y genera un resumen: origen de los datos, filas, columnas, tipos, valores nulos, duplicados, estadísticas, valores más frecuentes y rango de fechas. Lo muestra en pantalla o lo guarda en `.txt`. |
 | `src/clases_po/__init__.py` | Permite importar las dos clases con `from clases_po import HFDatasetLoader, DatasetSummarizer`. |
-| `src/actividad_1/EA1_olist_comercial.ipynb` | Notebook que coordina todo: carga las tablas con `HFDatasetLoader`, aplica las transformaciones y pasa el resultado a `DatasetSummarizer`. |
-| `.github/workflows/ejecutar-actividad-1.yml` | GitHub Action que ejecuta el notebook en cada push a `main` y sube los resultados al repositorio. |
+| `src/actividad_1/EA1_olist_comercial.ipynb` | Notebook de la EA1: carga las tablas, aplica 8 transformaciones y resume el resultado. |
+| `AE2/notebooks/AE2_reconocimiento_olist.ipynb` | Notebook de la AE2: obtiene el dataset, lo describe y genera el resumen `.txt`. |
+| `.github/workflows/ejecutar-notebooks.yml` | GitHub Action que ejecuta los dos notebooks en cada push a `main` y sube los resultados al repositorio. |
 | `requirements.txt` | Librerías necesarias. |
 
 ## Instalación
@@ -87,15 +136,22 @@ pip install -r requirements.txt
 
 ## Uso
 
-### Ejecutar el notebook
+### Ejecutar los notebooks
 
-Abrirlo y ejecutar las celdas en orden:
+Abrirlos y ejecutar las celdas en orden:
 
 ```bash
-jupyter notebook src/actividad_1/EA1_olist_comercial.ipynb
+jupyter notebook
 ```
 
-O ejecutarlo completo desde la terminal:
+O ejecutarlos completos desde la terminal. AE2:
+
+```bash
+cd AE2/notebooks
+jupyter nbconvert --to notebook --execute --inplace AE2_reconocimiento_olist.ipynb
+```
+
+EA1:
 
 ```bash
 cd src/actividad_1
@@ -104,8 +160,8 @@ jupyter nbconvert --to notebook --execute --inplace EA1_olist_comercial.ipynb
 
 ### Usar las clases
 
-Desde un script o notebook ubicado en `src/` (el notebook de la actividad ya
-agrega `src` a la ruta automáticamente):
+Desde un script o notebook ubicado en `src/` (los notebooks del proyecto ya
+agregan `src` a la ruta automáticamente):
 
 ```python
 from clases_po import DatasetSummarizer, HFDatasetLoader
@@ -120,10 +176,19 @@ tablas = HFDatasetLoader.load_tables(
 )
 
 # Generar el resumen
-DatasetSummarizer(ordenes, titulo="Órdenes").guardar("reportes/ordenes.txt")
+DatasetSummarizer(ordenes, titulo="Órdenes", metadatos={"Dataset": "bulutttt/olist-raw-data"}).guardar("reportes/ordenes.txt")
 ```
 
-## Proceso del notebook
+## Proceso de los notebooks
+
+### AE2 - Reconocimiento del dataset
+
+1. **Obtención:** descarga 6 tablas de Olist con `HFDatasetLoader`, fijando la revisión del repositorio.
+2. **Construcción del DataFrame:** une ítems, órdenes, productos, categorías, clientes y vendedores (una fila por producto vendido) y verifica que no se pierdan ni dupliquen filas.
+3. **Descripción básica:** registros de ejemplo, dimensiones, columnas, tipos, nulos y variables principales.
+4. **Resumen:** `DatasetSummarizer` genera `AE2/resultados/resumen_dataframe.txt` y el notebook verifica que corresponda al DataFrame.
+
+### EA1 - Transformaciones
 
 1. **Carga:** descarga las 7 tablas de Olist con `HFDatasetLoader`.
 2. **Transformaciones:**
@@ -139,41 +204,39 @@ DatasetSummarizer(ordenes, titulo="Órdenes").guardar("reportes/ordenes.txt")
 
 ## Resultados generados
 
-Se crean dentro de `src/actividad_1/` al ejecutar el notebook:
-
 | Archivo | Contenido |
 |---|---|
-| `reportes/ventas_olist.txt` | Resumen de la tabla de ventas transformada |
-| `reportes/ventas_por_vendedor.txt` | Resumen de las ventas agrupadas por vendedor |
-| `datos/ventas_por_vendedor.csv` | Ventas, órdenes y tiempos de entrega por vendedor |
-| `datos/ventas_por_categoria_mes.csv` | Órdenes, ingreso y flete por categoría y mes |
+| `AE2/resultados/resumen_dataframe.txt` | Resumen del DataFrame de reconocimiento de la AE2 |
+| `src/actividad_1/reportes/ventas_olist.txt` | Resumen de la tabla de ventas transformada (EA1) |
+| `src/actividad_1/reportes/ventas_por_vendedor.txt` | Resumen de las ventas agrupadas por vendedor (EA1) |
+| `src/actividad_1/datos/ventas_por_vendedor.csv` | Ventas, órdenes y tiempos de entrega por vendedor (EA1) |
+| `src/actividad_1/datos/ventas_por_categoria_mes.csv` | Órdenes, ingreso y flete por categoría y mes (EA1) |
 
 ## Ejecución automática (GitHub Actions)
 
-El archivo `.github/workflows/ejecutar-actividad-1.yml` define un proceso que
+El archivo `.github/workflows/ejecutar-notebooks.yml` define un proceso que
 GitHub ejecuta en sus propios servidores **cada vez que se hace push a `main`**.
 También se puede lanzar manualmente desde la pestaña **Actions** del repositorio.
 
-El workflow no guarda datos: **ejecuta el notebook desde cero** en una máquina
-limpia, sin nada del computador local, en este orden:
+El workflow no guarda datos: **ejecuta los notebooks desde cero** en una
+máquina limpia, sin nada del computador local, en este orden:
 
 1. **Descargar el repositorio** en una máquina Linux nueva.
 2. **Configurar Python 3.12** e instalar las librerías de `requirements.txt`.
-3. **Limpiar resultados anteriores:** borra todo el contenido de
-   `src/actividad_1/datos/` y `src/actividad_1/reportes/`.
-4. **Ejecutar el notebook** con `jupyter nbconvert --execute`: descarga el
-   dataset desde Hugging Face, aplica las transformaciones y genera de nuevo
-   los `.csv` y los `.txt`.
-5. **Guardar los resultados:** hace un commit como `github-actions[bot]` con el
-   notebook ejecutado (con sus salidas visibles), los `.csv` y los `.txt`. El
+3. **Limpiar resultados anteriores:** borra el contenido de
+   `src/actividad_1/datos/`, `src/actividad_1/reportes/` y `AE2/resultados/`.
+4. **Ejecutar los notebooks** con `jupyter nbconvert --execute`: descargan el
+   dataset desde Hugging Face y generan de nuevo los `.csv` y los `.txt`.
+5. **Guardar los resultados:** hace un commit como `github-actions[bot]` con los
+   notebooks ejecutados (con sus salidas visibles), los `.csv` y los `.txt`. El
    mensaje lleva `[skip ci]` para que ese commit no vuelva a disparar el
    workflow y no se forme un ciclo infinito.
 
 ### Evidencia de funcionamiento
 
 - En la pestaña **Actions**, la ejecución aparece en verde.
-- En el historial aparece el commit `chore: actualizar resultados de Actividad 1 [skip ci]`
-  hecho por `github-actions[bot]`. Como el `.txt` incluye la fecha y hora de
+- En el historial aparece el commit `chore: actualizar resultados de los notebooks [skip ci]`
+  hecho por `github-actions[bot]`. Como los `.txt` incluyen la fecha y hora de
   generación, este commit aparece en cada ejecución exitosa.
 
 ### Idempotencia
@@ -181,15 +244,16 @@ limpia, sin nada del computador local, en este orden:
 El proceso es **idempotente**: ejecutarlo una o muchas veces deja el
 repositorio en el mismo estado, porque cada ejecución parte de cero y produce
 los mismos resultados a partir del mismo dataset (lo único que cambia es la
-fecha de generación del `.txt`). No se acumulan archivos viejos ni se mezclan
+fecha de generación de los `.txt`). No se acumulan archivos viejos ni se mezclan
 resultados de ejecuciones anteriores.
 
-Por eso **no es necesario borrar manualmente `datos/` ni `reportes/`** antes de
-hacer push:
+Por eso **no es necesario borrar manualmente las carpetas de resultados** antes
+de hacer push:
 
-- En GitHub Actions, el paso 3 los borra antes de ejecutar el notebook.
+- En GitHub Actions, el paso 3 las limpia antes de ejecutar los notebooks.
   Los archivos que se suban desde el computador local nunca se usan: siempre se
-  regeneran a partir de los datos de Hugging Face. Si la descarga o el notebook
+  regeneran a partir de los datos de Hugging Face. Si la descarga o un notebook
   fallan, el workflow queda en rojo aunque esos archivos ya estén en el
   repositorio.
-- En local, el notebook sobrescribe los mismos archivos en cada ejecución.
+- En local, los notebooks crean las carpetas si no existen y sobrescriben los
+  mismos archivos en cada ejecución.
