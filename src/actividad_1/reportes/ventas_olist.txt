@@ -1,0 +1,91 @@
+VENTAS ENTREGADAS - OLIST (DATAFRAME TRANSFORMADO)
+======================================================================
+Generado: 2026-10-25 13:08:10
+
+Dimensiones
+-----------
+Filas: 110189
+Columnas: 22
+Filas duplicadas: 0
+Memoria aproximada: 74,553.1 KB
+
+Columnas y tipos
+----------------
+- order_id: object (96470 valores únicos)
+- linea: int64 (21 valores únicos)
+- customer_unique_id: object (93350 valores únicos)
+- seller_id: object (2970 valores únicos)
+- product_id: object (32214 valores únicos)
+- fecha_compra: datetime64[ns] (95948 valores únicos)
+- fecha_entrega: datetime64[ns] (95658 valores únicos)
+- fecha_estimada: datetime64[ns] (445 valores únicos)
+- mes: object (23 valores únicos)
+- estado_cliente: object (27 valores únicos)
+- estado_vendedor: object (22 valores únicos)
+- mismo_estado: bool (2 valores únicos)
+- categoria: object (72 valores únicos)
+- peso_g: float64 (2171 valores únicos)
+- precio: float64 (5859 valores únicos)
+- flete: float64 (6924 valores únicos)
+- total_linea: float64 (28706 valores únicos)
+- medio_pago: object (4 valores únicos)
+- cuotas: float64 (24 valores únicos)
+- total_pagado: float64 (27438 valores únicos)
+- dias_entrega: int64 (146 valores únicos)
+- entrega_tardia: bool (2 valores únicos)
+
+Valores nulos por columna
+-------------------------
+- order_id: 0 (0.00%)
+- linea: 0 (0.00%)
+- customer_unique_id: 0 (0.00%)
+- seller_id: 0 (0.00%)
+- product_id: 0 (0.00%)
+- fecha_compra: 0 (0.00%)
+- fecha_entrega: 0 (0.00%)
+- fecha_estimada: 0 (0.00%)
+- mes: 0 (0.00%)
+- estado_cliente: 0 (0.00%)
+- estado_vendedor: 0 (0.00%)
+- mismo_estado: 0 (0.00%)
+- categoria: 0 (0.00%)
+- peso_g: 18 (0.02%)
+- precio: 0 (0.00%)
+- flete: 0 (0.00%)
+- total_linea: 0 (0.00%)
+- medio_pago: 3 (0.00%)
+- cuotas: 3 (0.00%)
+- total_pagado: 3 (0.00%)
+- dias_entrega: 0 (0.00%)
+- entrega_tardia: 0 (0.00%)
+Total de valores nulos: 27
+
+Estadísticas numéricas
+----------------------
+            linea      peso_g      precio       flete  total_linea      cuotas  total_pagado  dias_entrega
+count  110189.000  110171.000  110189.000  110189.000   110189.000  110186.000    110186.000    110189.000
+mean        1.198    2089.688     119.978      19.949      139.927       3.015       179.467        12.007
+std         0.707    3741.683     182.305      15.699      189.325       2.801       271.347         9.451
+min         1.000       0.000       0.850       0.000        6.080       0.000         9.590         0.000
+25%         1.000     300.000      39.900      13.080       55.180       1.000        65.592         6.000
+50%         1.000     700.000      74.900      16.260       92.120       2.000       114.340        10.000
+75%         1.000    1800.000     134.170      21.150      157.470       4.000       194.960        15.000
+max        21.000   40425.000    6735.000     409.680     6929.310      24.000     13664.080       209.000
+
+Top 5 valores de columnas categóricas
+-------------------------------------
+- order_id: 8272b63d03f5f79c56e9e4120aec44ef (21), 1b15974a0141d54e36626dca3fdc731a (20), ab14fdcfbe524636d65ee38360e22ce8 (20), 428a2f660dc84138d969ccd69a0ab6d5 (15), 9ef13efd6949e4573a18964dd1bbe7f5 (15)
+- customer_unique_id: c8460e4251689ba205045f3ea17884a1 (24), 4546caea018ad8c692964e3382debd19 (21), 698e1cf81d01a3d389d96145f7fa6df8 (20), c402f431464c72e27330a67f7b94d4fb (20), 0f5ac8d5c31de21d2f25e24be15bbffb (18)
+- seller_id: 6560211a19b47992c3666cc44a7e94c0 (1996), 4a3ca9315b744ce9f8e9374361493884 (1949), 1f50f920176fa81dab994f9023523100 (1926), cc419e0650a3c5ba77189a1882b7556a (1719), da8622b14eb17ae2831f4ac5b9dab84a (1548)
+- product_id: aca2eb7d00ea1a7b8ebd4e68314663af (520), 422879e10f46682990de24d770e7f83d (484), 99a4788cb24856965c36a24e339b6058 (477), 389d119b48cf3043d311335e499d9c6b (390), 368c6c730842d78016ad823897a372db (388)
+- mes: 2017-11 (8474), 2018-01 (8037), 2018-03 (8017), 2018-04 (7827), 2018-05 (7810)
+- estado_cliente: SP (46441), RJ (14143), MG (12916), RS (6133), PR (5649)
+- estado_vendedor: SP (78598), MG (8601), PR (8487), RJ (4685), SC (4000)
+- categoria: bed_bath_table (10953), health_beauty (9465), sports_leisure (8430), furniture_decor (8160), computers_accessories (7643)
+- medio_pago: credit_card (82930), boleto (22362), voucher (3243), debit_card (1651), nan (3)
+
+Rango de columnas de fecha
+--------------------------
+- fecha_compra: 2016-09-15 12:16:38 -> 2018-08-29 15:00:37
+- fecha_entrega: 2016-10-11 13:46:32 -> 2018-10-17 13:22:46
+- fecha_estimada: 2016-10-04 00:00:00 -> 2018-10-25 00:00:00

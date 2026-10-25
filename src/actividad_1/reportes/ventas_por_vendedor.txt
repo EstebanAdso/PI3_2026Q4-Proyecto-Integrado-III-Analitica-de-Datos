@@ -1,0 +1,52 @@
+VENTAS POR VENDEDOR (PROVEEDOR) - OLIST
+======================================================================
+Generado: 2026-10-25 13:08:11
+
+Dimensiones
+-----------
+Filas: 2970
+Columnas: 7
+Filas duplicadas: 0
+Memoria aproximada: 499.0 KB
+
+Columnas y tipos
+----------------
+- seller_id: object (2970 valores únicos)
+- estado_vendedor: object (22 valores únicos)
+- ordenes: int64 (245 valores únicos)
+- productos_vendidos: int64 (255 valores únicos)
+- ingreso: float64 (2678 valores únicos)
+- dias_entrega_prom: float64 (1026 valores únicos)
+- pct_entrega_tardia: float64 (48 valores únicos)
+
+Valores nulos por columna
+-------------------------
+- seller_id: 0 (0.00%)
+- estado_vendedor: 0 (0.00%)
+- ordenes: 0 (0.00%)
+- productos_vendidos: 0 (0.00%)
+- ingreso: 0 (0.00%)
+- dias_entrega_prom: 0 (0.00%)
+- pct_entrega_tardia: 0 (0.00%)
+Total de valores nulos: 0
+
+Estadísticas numéricas
+----------------------
+        ordenes  productos_vendidos     ingreso  dias_entrega_prom  pct_entrega_tardia
+count  2970.000            2970.000    2970.000           2970.000            2970.000
+mean     32.933              37.101    4451.262             11.700               0.069
+std     105.406             119.672   13926.811              7.110               0.158
+min       1.000               1.000       6.500              1.000               0.000
+25%       2.000               2.000     219.800              7.940               0.000
+50%       7.000               8.000     846.175             10.685               0.000
+75%      22.000              26.000    3497.880             13.810               0.070
+max    1819.000            1996.000  226987.930            189.000               1.000
+
+Top 5 valores de columnas categóricas
+-------------------------------------
+- seller_id: 4869f7a5dfa277a7dca6462dcf3b52b2 (1), 53243585a1d6dc2643021fd1853d8905 (1), 4a3ca9315b744ce9f8e9374361493884 (1), fa1c13f2614d7b5c4749cbc52fecda94 (1), 7c67e1448b00f6e969d365cea6b010ab (1)
+- estado_vendedor: SP (1769), PR (335), MG (236), SC (184), RJ (163)
+
+Rango de columnas de fecha
+--------------------------
+(sin columnas de fecha)
