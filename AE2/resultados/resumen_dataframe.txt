@@ -1,6 +1,6 @@
 RESUMEN DEL DATAFRAME - OLIST (AE2)
 ======================================================================
-Generado: 2026-10-25 13:29:58
+Generado: 2026-10-25 19:44:17
 
 Origen de los datos
 -------------------
@@ -103,17 +103,17 @@ Top 5 valores de columnas categóricas
 - order_id: 8272b63d03f5f79c56e9e4120aec44ef (21), 1b15974a0141d54e36626dca3fdc731a (20), ab14fdcfbe524636d65ee38360e22ce8 (20), 9ef13efd6949e4573a18964dd1bbe7f5 (15), 428a2f660dc84138d969ccd69a0ab6d5 (15)
 - product_id: aca2eb7d00ea1a7b8ebd4e68314663af (527), 99a4788cb24856965c36a24e339b6058 (488), 422879e10f46682990de24d770e7f83d (484), 389d119b48cf3043d311335e499d9c6b (392), 368c6c730842d78016ad823897a372db (388)
 - seller_id: 6560211a19b47992c3666cc44a7e94c0 (2033), 4a3ca9315b744ce9f8e9374361493884 (1987), 1f50f920176fa81dab994f9023523100 (1931), cc419e0650a3c5ba77189a1882b7556a (1775), da8622b14eb17ae2831f4ac5b9dab84a (1551)
-- shipping_limit_date: 2017-07-21 18:25:23 (21), 2018-03-01 02:50:48 (21), 2017-08-30 14:30:23 (20), 2017-12-21 02:30:41 (15), 2017-11-30 10:30:51 (15)
+- shipping_limit_date: 2018-03-01 02:50:48 (21), 2017-07-21 18:25:23 (21), 2017-08-30 14:30:23 (20), 2017-11-30 10:30:51 (15), 2017-02-03 21:44:49 (15)
 - customer_id: fc3d1daec319d62d49bfb5e1f83123e9 (21), be1b70680b9f9694d8c70f41fa3dc92b (20), bd5d39761aa56689a265d95d8d32b8be (20), adb32467ecc74b53576d9d13a5a55891 (15), 10de381f8a8d23fff822753305f71cae (15)
 - order_status: delivered (110197), shipped (1185), canceled (542), invoiced (359), processing (357)
-- order_purchase_timestamp: 2017-07-16 18:19:25 (21), 2018-02-22 15:30:41 (20), 2017-08-23 09:22:34 (20), 2017-01-30 21:44:49 (15), 2017-11-23 20:30:52 (15)
-- order_approved_at: 2018-02-24 03:20:27 (23), 2017-07-17 18:25:23 (21), 2017-08-24 14:30:23 (20), 2017-12-15 02:30:41 (15), None (15)
+- order_purchase_timestamp: 2017-07-16 18:19:25 (21), 2018-02-22 15:30:41 (20), 2017-08-23 09:22:34 (20), 2017-11-23 20:30:52 (15), 2017-01-30 21:44:49 (15)
+- order_approved_at: 2018-02-24 03:20:27 (23), 2017-07-17 18:25:23 (21), 2017-08-24 14:30:23 (20), None (15), 2017-12-15 02:30:41 (15)
 - order_delivered_carrier_date: None (1194), 2018-05-09 15:48:00 (48), 2018-05-10 18:29:00 (36), 2018-08-08 15:01:00 (21), 2018-05-07 12:31:00 (21)
-- order_delivered_customer_date: None (2454), 2017-07-31 18:03:02 (21), 2018-03-05 15:22:27 (20), 2017-09-02 12:13:03 (20), 2017-12-13 20:19:35 (15)
+- order_delivered_customer_date: None (2454), 2017-07-31 18:03:02 (21), 2018-03-05 15:22:27 (20), 2017-09-02 12:13:03 (20), 2017-02-14 10:48:10 (15)
 - order_estimated_delivery_date: 2017-12-20 00:00:00 (604), 2018-05-29 00:00:00 (598), 2018-03-12 00:00:00 (592), 2018-03-13 00:00:00 (584), 2018-07-05 00:00:00 (571)
 - product_category_name: cama_mesa_banho (11115), beleza_saude (9670), esporte_lazer (8641), moveis_decoracao (8334), informatica_acessorios (7827)
 - product_category_name_english: bed_bath_table (11115), health_beauty (9670), sports_leisure (8641), furniture_decor (8334), computers_accessories (7827)
-- customer_unique_id: c8460e4251689ba205045f3ea17884a1 (24), 4546caea018ad8c692964e3382debd19 (21), c402f431464c72e27330a67f7b94d4fb (20), 698e1cf81d01a3d389d96145f7fa6df8 (20), 0f5ac8d5c31de21d2f25e24be15bbffb (18)
+- customer_unique_id: c8460e4251689ba205045f3ea17884a1 (24), 4546caea018ad8c692964e3382debd19 (21), 698e1cf81d01a3d389d96145f7fa6df8 (20), c402f431464c72e27330a67f7b94d4fb (20), 0f5ac8d5c31de21d2f25e24be15bbffb (18)
 - customer_city: sao paulo (17808), rio de janeiro (7837), belo horizonte (3144), brasilia (2392), curitiba (1751)
 - customer_state: SP (47449), RJ (14579), MG (13129), RS (6235), PR (5740)
 - seller_city: sao paulo (27983), ibitinga (7750), curitiba (3016), santo andre (2964), belo horizonte (2593)
