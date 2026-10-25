@@ -18,9 +18,17 @@ class DatasetSummarizer:
         df: DataFrame que se va a resumir.
         titulo: Título que encabeza el resumen.
         top_n: Cantidad de valores frecuentes a mostrar por columna categórica.
+        metadatos: Datos de origen que encabezan el resumen, por ejemplo
+            ``{"Dataset": "usuario/dataset", "Split": "train"}``.
     """
 
-    def __init__(self, df: pd.DataFrame, titulo: str = "Resumen del DataFrame", top_n: int = 5) -> None:
+    def __init__(
+        self,
+        df: pd.DataFrame,
+        titulo: str = "Resumen del DataFrame",
+        top_n: int = 5,
+        metadatos: dict[str, str] | None = None,
+    ) -> None:
         if not isinstance(df, pd.DataFrame):
             raise TypeError("df debe ser un pandas.DataFrame.")
         if top_n < 1:
@@ -28,6 +36,13 @@ class DatasetSummarizer:
         self.df = df
         self.titulo = titulo
         self.top_n = top_n
+        self.metadatos = metadatos or {}
+
+    def origen(self) -> list[str]:
+        """Metadatos del origen de los datos (dataset, split, archivos, etc.)."""
+        if not self.metadatos:
+            return ["(sin metadatos de origen)"]
+        return [f"- {clave}: {valor}" for clave, valor in self.metadatos.items()]
 
     def dimensiones(self) -> list[str]:
         """Cantidad de filas, columnas, duplicados y memoria usada."""
@@ -89,6 +104,7 @@ class DatasetSummarizer:
     def generar(self) -> str:
         """Construye el texto completo del resumen."""
         secciones = [
+            ("Origen de los datos", self.origen()),
             ("Dimensiones", self.dimensiones()),
             ("Columnas y tipos", self.columnas()),
             ("Valores nulos por columna", self.nulos()),

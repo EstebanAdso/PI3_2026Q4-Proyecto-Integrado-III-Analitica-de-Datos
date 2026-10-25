@@ -16,6 +16,8 @@ class HFDatasetLoader:
             cargar. Útil cuando el dataset publica cada tabla como un archivo
             suelto (por ejemplo, varios ``.csv``) sin configuraciones.
         split: División que se desea cargar.
+        revision: Versión del repositorio (commit, rama o etiqueta). Fijarla
+            garantiza que siempre se descarguen los mismos datos.
     """
 
     def __init__(
@@ -24,11 +26,13 @@ class HFDatasetLoader:
         config: str | None = None,
         data_files: str | list[str] | None = None,
         split: str = "train",
+        revision: str | None = None,
     ) -> None:
         self.dataset_name = dataset_name
         self.config = config
         self.data_files = data_files
         self.split = split
+        self.revision = revision
         self.df: pd.DataFrame | None = None
 
     def load(self) -> pd.DataFrame:
@@ -38,6 +42,7 @@ class HFDatasetLoader:
             self.config,
             data_files=self.data_files,
             split=self.split,
+            revision=self.revision,
         )
         self.df = dataset.to_pandas()
         return self.df
@@ -75,6 +80,7 @@ class HFDatasetLoader:
             "config": self.config,
             "data_files": self.data_files,
             "split": self.split,
+            "revision": self.revision,
             "filas": len(self.df),
             "columnas": len(self.df.columns),
         }
