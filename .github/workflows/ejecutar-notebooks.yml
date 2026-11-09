@@ -45,6 +45,9 @@ jobs:
           find src/actividad_1/reportes -mindepth 1 -delete
           mkdir -p AE2/resultados
           find AE2/resultados -mindepth 1 -delete
+          mkdir -p AE3/datos AE3/resultados
+          find AE3/datos -mindepth 1 -delete
+          find AE3/resultados -mindepth 1 -delete
 
       - name: Ejecutar EA1_olist_comercial.ipynb
         working-directory: src/actividad_1
@@ -68,12 +71,24 @@ jobs:
             --ExecutePreprocessor.timeout=1800 \
             AE2_reconocimiento_olist.ipynb
 
+      - name: Ejecutar AE3_transformacion_enriquecimiento_olist.ipynb
+        working-directory: AE3/notebooks
+        run: |
+          source ../../.venv/bin/activate
+          jupyter nbconvert \
+            --to notebook \
+            --execute \
+            --inplace \
+            --ExecutePreprocessor.timeout=1800 \
+            AE3_transformacion_enriquecimiento_olist.ipynb
+
       - name: Confirmar cambios generados
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add src/actividad_1/datos src/actividad_1/reportes src/actividad_1/EA1_olist_comercial.ipynb
           git add AE2/resultados AE2/notebooks/AE2_reconocimiento_olist.ipynb
+          git add AE3/datos AE3/resultados AE3/notebooks/AE3_transformacion_enriquecimiento_olist.ipynb
 
           if git diff --cached --quiet; then
             echo "No se generaron cambios."
