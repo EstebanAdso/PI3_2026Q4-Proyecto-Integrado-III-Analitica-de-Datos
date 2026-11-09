@@ -1,6 +1,6 @@
 RESUMEN DEL DATAFRAME FINAL - OLIST (AE3)
 ======================================================================
-Generado: 2026-11-08 20:26:10
+Generado: 2026-11-09 02:01:24
 
 Origen de los datos
 -------------------
@@ -70,7 +70,7 @@ max           21.000    6735.000        409.680       209.630
 
 Top 5 valores de columnas categóricas
 -------------------------------------
-- order_id: 8272b63d03f5f79c56e9e4120aec44ef (21), 1b15974a0141d54e36626dca3fdc731a (20), ab14fdcfbe524636d65ee38360e22ce8 (20), 428a2f660dc84138d969ccd69a0ab6d5 (15), 9ef13efd6949e4573a18964dd1bbe7f5 (15)
+- order_id: 8272b63d03f5f79c56e9e4120aec44ef (21), ab14fdcfbe524636d65ee38360e22ce8 (20), 1b15974a0141d54e36626dca3fdc731a (20), 428a2f660dc84138d969ccd69a0ab6d5 (15), 9ef13efd6949e4573a18964dd1bbe7f5 (15)
 - order_status: delivered (110197), shipped (1185), invoiced (359), processing (357), approved (3)
 - categoria_producto: bed_bath_table (11097), health_beauty (9634), sports_leisure (8590), furniture_decor (8298), computers_accessories (7781)
 - customer_state: SP (47153), RJ (14509), MG (13071), RS (6211), PR (5719)

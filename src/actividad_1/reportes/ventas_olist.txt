@@ -1,6 +1,6 @@
 VENTAS ENTREGADAS - OLIST (DATAFRAME TRANSFORMADO)
 ======================================================================
-Generado: 2026-10-25 19:44:09
+Generado: 2026-11-09 02:01:03
 
 Origen de los datos
 -------------------
