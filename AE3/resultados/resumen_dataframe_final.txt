@@ -1,6 +1,6 @@
 RESUMEN DEL DATAFRAME FINAL - OLIST (AE3)
 ======================================================================
-Generado: 2026-11-09 02:01:24
+Generado: 2026-11-21 05:25:38
 
 Origen de los datos
 -------------------
