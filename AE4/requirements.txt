@@ -1,0 +1,5 @@
+# Dependencias de la aplicacion de Streamlit (AE4).
+# Streamlit Community Cloud usa este archivo porque esta junto a app.py.
+streamlit==1.67.0
+plotly==7.1.0
+pandas>=2.2.3,<3
