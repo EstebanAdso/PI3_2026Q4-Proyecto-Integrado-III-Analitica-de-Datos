@@ -1,6 +1,6 @@
 VENTAS POR VENDEDOR (PROVEEDOR) - OLIST
 ======================================================================
-Generado: 2026-11-21 05:25:25
+Generado: 2026-11-21 05:54:42
 
 Origen de los datos
 -------------------
