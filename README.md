@@ -141,8 +141,9 @@ Resultado: de **112.650 filas y 30 columnas** a **112.101 filas y 14 columnas**.
 Presenta las respuestas a las cinco preguntas de negocio mediante métricas y
 gráficos en una **aplicación de Streamlit**.
 
-- **Aplicación publicada:** _(enlace pendiente: se agrega al publicar en Streamlit Community Cloud)_
+- **Aplicación publicada:** https://37cczcf4ah6tdno2nrchbq.streamlit.app/
 - **Código:** `AE4/app.py`
+- **Dependencias de la app:** `AE4/requirements.txt` (solo `streamlit`, `plotly` y `pandas`; Streamlit Community Cloud usa este archivo por estar junto a `app.py`)
 - **Datos que usa:** las tablas de resultados de la AE3 (`AE3/resultados/tabla_p1_categorias.csv` a
   `tabla_p5_mensual.csv`). La app no descarga datos: lee esas tablas del repositorio y verifica que
   sus totales coincidan entre sí.
@@ -177,7 +178,7 @@ Se abre en el navegador en `http://localhost:8501`.
 
 1. Entrar a https://share.streamlit.io con la cuenta de GitHub.
 2. **Create app** → elegir este repositorio, rama `main` y archivo principal `AE4/app.py`.
-3. **Deploy**. La app instala las dependencias de `requirements.txt` y queda vinculada al repositorio:
+3. **Deploy**. La app instala las dependencias de `AE4/requirements.txt` y queda vinculada al repositorio:
    cada push a `main` la actualiza.
 
 ### Documento final
@@ -219,6 +220,7 @@ discusión, conclusiones, recomendaciones y referencias.
 │       └── tabla_p5_mensual.csv
 ├── AE4/
 │   ├── app.py
+│   ├── requirements.txt
 │   └── documento/
 │       ├── Proyecto_Integrador_Olist_Documento_Final.docx
 │       └── Proyecto_Integrador_Olist_Documento_Final.pdf
