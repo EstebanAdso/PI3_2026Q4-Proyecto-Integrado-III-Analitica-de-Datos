@@ -20,6 +20,7 @@ ejecutado automáticamente, y usarlo como base del proyecto integrador:
 | **EA1** - Carga y creación de dataset | `src/actividad_1/` | Notebook con 8 transformaciones del dataset y sus resúmenes `.txt` |
 | **AE2** - Proyecto integrador: ideación, diseño y documentación de la necesidad | `AE2/` | Documento Word con la necesidad y el diseño, notebook de reconocimiento del dataset y resumen `.txt` |
 | **AE3** - Proyecto integrador: transformación y enriquecimiento de datos | `AE3/` | Notebook que transforma, enriquece y responde las preguntas de negocio; dataset preparado, tablas `.csv`, resumen `.txt` y documento Word actualizado |
+| **AE4** - Proyecto integrador: métricas y visualización de datos | `AE4/` | Aplicación de Streamlit con métricas y gráficos que responden las preguntas, y documento final completo en Word y PDF |
 
 ## Dataset
 
@@ -135,6 +136,61 @@ Resultado: de **112.650 filas y 30 columnas** a **112.101 filas y 14 columnas**.
 | `AE3/resultados/resumen_dataframe_final.txt` | Información descriptiva del DataFrame final (filas, columnas, tipos, nulos, estadísticas), generada en cada ejecución con `DatasetSummarizer` |
 | `AE3/documento/AE3_Transformacion_y_Enriquecimiento_Olist.docx` | Documento de la AE2 actualizado con metodología, diccionario, resultados, discusión y conclusiones del avance |
 
+## AE4 - Métricas y visualización de datos
+
+Presenta las respuestas a las cinco preguntas de negocio mediante métricas y
+gráficos en una **aplicación de Streamlit**.
+
+- **Aplicación publicada:** _(enlace pendiente: se agrega al publicar en Streamlit Community Cloud)_
+- **Código:** `AE4/app.py`
+- **Datos que usa:** las tablas de resultados de la AE3 (`AE3/resultados/tabla_p1_categorias.csv` a
+  `tabla_p5_mensual.csv`). La app no descarga datos: lee esas tablas del repositorio y verifica que
+  sus totales coincidan entre sí.
+
+### Secciones de la aplicación
+
+| Sección | Contenido |
+|---|---|
+| Inicio | Necesidad, preguntas de negocio con su métrica y unidad, dataset e indicadores generales |
+| P1. Categorías | Ingresos, unidades, participación e ingreso promedio por categoría |
+| P2. Estados | Las mismas métricas por estado del cliente y por región |
+| P3. Entregas por estado | Mediana de días de entrega y % de entregas tardías por estado |
+| P4. Entregas por categoría | Mediana de días de entrega y % de entregas tardías por categoría |
+| P5. Evolución mensual | Unidades, ingresos e ingreso promedio por mes de compra |
+| Conclusiones | Conclusiones, recomendaciones y limitaciones |
+
+Cada pregunta muestra la definición de la métrica (cálculo y unidad), gráficos interactivos, la tabla
+de resultados, la interpretación, la decisión que apoya y las limitaciones.
+
+### Ejecutar la aplicación
+
+Con el entorno virtual activado y las dependencias instaladas (ver [Instalación](#instalación)),
+desde la raíz del repositorio:
+
+```bash
+streamlit run AE4/app.py
+```
+
+Se abre en el navegador en `http://localhost:8501`.
+
+### Publicar en Streamlit Community Cloud
+
+1. Entrar a https://share.streamlit.io con la cuenta de GitHub.
+2. **Create app** → elegir este repositorio, rama `main` y archivo principal `AE4/app.py`.
+3. **Deploy**. La app instala las dependencias de `requirements.txt` y queda vinculada al repositorio:
+   cada push a `main` la actualiza.
+
+### Documento final
+
+| Archivo | Contenido |
+|---|---|
+| `AE4/documento/Proyecto_Integrador_Olist_Documento_Final.pdf` | Documento completo del proyecto en PDF |
+| `AE4/documento/Proyecto_Integrador_Olist_Documento_Final.docx` | El mismo documento en Word |
+
+Integra todas las etapas: portada, índices, introducción, necesidad, justificación, objetivos, marco
+teórico, metodología, transformación y enriquecimiento, métricas y visualizaciones, resultados y
+discusión, conclusiones, recomendaciones y referencias.
+
 ## Archivos del proyecto
 
 ```
@@ -161,6 +217,11 @@ Resultado: de **112.650 filas y 30 columnas** a **112.101 filas y 14 columnas**.
 │       ├── tabla_p3_entrega_estados.csv
 │       ├── tabla_p4_entrega_categorias.csv
 │       └── tabla_p5_mensual.csv
+├── AE4/
+│   ├── app.py
+│   └── documento/
+│       ├── Proyecto_Integrador_Olist_Documento_Final.docx
+│       └── Proyecto_Integrador_Olist_Documento_Final.pdf
 ├── src/
 │   ├── clases_po/
 │   │   ├── __init__.py
@@ -182,8 +243,9 @@ Resultado: de **112.650 filas y 30 columnas** a **112.101 filas y 14 columnas**.
 | `src/actividad_1/EA1_olist_comercial.ipynb` | Notebook de la EA1: carga las tablas, aplica 8 transformaciones y resume el resultado. |
 | `AE2/notebooks/AE2_reconocimiento_olist.ipynb` | Notebook de la AE2: obtiene el dataset, lo describe y genera el resumen `.txt`. |
 | `AE3/notebooks/AE3_transformacion_enriquecimiento_olist.ipynb` | Notebook de la AE3: transforma y enriquece el dataset, responde las preguntas y exporta el dataset preparado, las tablas `.csv` y el resumen `.txt`. |
+| `AE4/app.py` | Aplicación de Streamlit de la AE4: lee las tablas de la AE3 y presenta las métricas, los gráficos y las respuestas. |
 | `.github/workflows/ejecutar-notebooks.yml` | GitHub Action que ejecuta los notebooks en cada push a `main` y sube los resultados al repositorio. |
-| `requirements.txt` | Librerías necesarias. |
+| `requirements.txt` | Librerías necesarias (incluye `streamlit` y `plotly` para la aplicación). |
 
 ## Instalación
 
